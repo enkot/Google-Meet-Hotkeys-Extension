@@ -1,0 +1,58 @@
+{
+    "manifest_version": 3,
+    "name": "Google Meet Screen Share Toggle",
+    "description": "Toggle screen sharing in Google Meet with a keyboard shortcut.",
+    "version": "1.0",
+    "permissions": [
+        "scripting",
+        "activeTab"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {},
+    "content_scripts": [
+        {
+            "matches": [
+                "https://meet.google.com/*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "commands": {
+        "toggle-screen-share": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+S",
+                "windows": "Ctrl+Shift+S"
+            },
+            "description": "Toggle screen sharing in Google Meet"
+        },
+        "toggle-people": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+U",
+                "windows": "Ctrl+Shift+U"
+            },
+            "description": "Toggle people list in Google Meet"
+        },
+        "end-call": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+Q",
+                "windows": "Ctrl+Shift+Q"
+            },
+            "description": "End call in Google Meet"
+        },
+        "_execute_action": {
+            "toggle-screen-share": {
+                "windows": "Ctrl+Shift+S"
+            },
+            "toggle-people": {
+                "windows": "Ctrl+Shift+U"
+            },
+            "end-call": {
+                "windows": "Ctrl+Shift+Q"
+            }
+        }
+    }
+}
